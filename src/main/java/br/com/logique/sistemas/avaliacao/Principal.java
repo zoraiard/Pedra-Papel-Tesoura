@@ -36,7 +36,7 @@ public class Principal {
 	private static void mostrarResultados() {
 		System.out.println("# ################## PARTIDAS ENCERRADAS ############### #");
 		
-		String  resultadoFinal =  jogo.getJogador1().getNome() +""+jogo.getJogador1().getNumeroJogosGanhos()  + " X " + 
+		String  resultadoFinal =  jogo.getJogador1().getNome() +" "+jogo.getJogador1().getNumeroJogosGanhos()  + " X " + 
 							      jogo.getJogador2().getNome() +" "+jogo.getJogador2().getNumeroJogosGanhos() ;
 		
 		String str ="=========================================================="  + "\n"
