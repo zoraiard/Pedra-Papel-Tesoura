@@ -17,6 +17,7 @@ public class Principal {
 			}else {
 				jogo.getJogador2().setEscolhaSimboloJogado(Jogo.sortearSimbolos(false));
 			}
+			guardajogadaAnterior = jogo.getJogador2().getEscolhaSimboloJogado();
 			jogo.realizarJogada();		
 		}				
 		mostrarResultados();
