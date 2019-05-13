@@ -1,4 +1,4 @@
-# Jogo Pedra PapeleTesoura
+# Jogo Pedra Papel e Tesoura
 
 Trata-se da implementação do jogo “Pedra-Papel-Tesoura” (https://pt.wikipedia.org/wiki/Pedra,_papel_e_tesoura) em Java. 
 
