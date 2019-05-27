@@ -3,9 +3,11 @@ package br.com.logique.sistemas.avaliacao;
 import java.util.Random;
 
 public class Jogo {
-	public static final int PEDRA   = 3;
-	public static final int PAPEL   = 2;
-	public static final int TESOURA = 1;
+	public static final int PEDRA     = 5;
+	public static final int LAGARTO   = 4;
+	public static final int SPOCK     = 3;	
+	public static final int PAPEL     = 2;
+	public static final int TESOURA   = 1;
 			
 	private Jogador jogador1;
 	private Jogador jogador2;
@@ -87,9 +89,16 @@ public class Jogo {
 		jogador1.setDescricaoSimboloJogado(getDescricaoSimbolo(escolhaJogado1));
 		jogador2.setDescricaoSimboloJogado(getDescricaoSimbolo(escolhaJogado2));
 				
-		if ((escolhaJogado1 == PEDRA   && escolhaJogado2 == TESOURA) || 
-			(escolhaJogado1 == TESOURA && escolhaJogado2 == PAPEL)   || 
-			(escolhaJogado1 == PAPEL   && escolhaJogado2 == PEDRA)) 
+		if ((escolhaJogado1 == PEDRA    && escolhaJogado2 == TESOURA)   || 
+			(escolhaJogado1 == TESOURA  && escolhaJogado2 == PAPEL)     || 
+			(escolhaJogado1 == PAPEL    && escolhaJogado2 == PEDRA)     ||
+			(escolhaJogado1 == PEDRA    && escolhaJogado2 == LAGARTO)   ||
+		    (escolhaJogado1 == LAGARTO  && escolhaJogado2 == SPOCK)     ||
+		    (escolhaJogado1 == SPOCK    && escolhaJogado2 == TESOURA)   ||
+		    (escolhaJogado1 == TESOURA  && escolhaJogado2 == LAGARTO)   ||
+		    (escolhaJogado1 == LAGARTO  && escolhaJogado2 == PAPEL)     ||
+		    (escolhaJogado1 == PAPEL    && escolhaJogado2 == SPOCK)     ||
+		 	(escolhaJogado1 == SPOCK    && escolhaJogado2 == PEDRA)) 
 		{
 			jogador1.setVenceu(true);
 			jogador2.setVenceu(false);
@@ -105,9 +114,9 @@ public class Jogo {
 	public static int sortearSimbolos(Boolean comPedra){
 		Random simboloSorteado = new Random();
 		if (comPedra) {
-			return  simboloSorteado.nextInt(3) + 1;
+			return  simboloSorteado.nextInt(5) + 1;
 		}else {
-			return simboloSorteado.nextInt(2) + 1;
+			return simboloSorteado.nextInt(4) + 1;
 		}
 	}
 	
@@ -145,7 +154,14 @@ public class Jogo {
 		        break;
 		    case TESOURA: 
 		    	descricao  = "TESOURA"; 
+		        break;
+		    case LAGARTO: 
+		    	descricao  = "LAGARTO"; 
 		        break;   
+		    case SPOCK: 
+		    	descricao  = "SPOCK"; 
+		        break;       
+		        
 		}
 		return descricao;		
 	}

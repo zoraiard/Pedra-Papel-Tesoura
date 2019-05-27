@@ -13,3 +13,6 @@ Então, os jogadores comparam os símbolos para decidir quem ganhou, da seguinte
 Este jogo possui uma única regra: não é permitido mostrar pedra duas vezes seguidas.
 
 
+# Variações
+
+O americano Sam Kass criou uma variação que foi popularizada no seriado The Big Bang Theory chamada Pedra, papel, tesoura, lagarto, Spock. Na variante acrescenta-se: pedra esmaga lagarto, lagarto envenena Spock, Spock quebra tesoura, tesoura decapita lagarto, lagarto come papel, papel contesta Spock, Spock vaporiza rocha.
