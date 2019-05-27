@@ -7,6 +7,7 @@ public class Jogador {
 	private int numeroJogosGanhos;
 	private int numeroJogosPerdidos;
 	private int escolhaSimboloJogado;
+	private String descricaoSimboloJogado;
 	private boolean venceu ;  
 	
 		
@@ -52,4 +53,11 @@ public class Jogador {
 		}
 	}
 
+	public String getDescricaoSimboloJogado() {
+		return descricaoSimboloJogado;
+	}
+
+	public void setDescricaoSimboloJogado(String descricaoSimboloJogado) {
+		this.descricaoSimboloJogado = descricaoSimboloJogado;
+	}
 }

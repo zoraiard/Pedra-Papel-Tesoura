@@ -56,12 +56,24 @@ public class Jogo {
 	}
 
 	public void realizarJogada() {
+		setDescricaoJogadas();
 		if (jogadaEmpatada()) {			
 			this.numeroDeEmpates++;
+			jogador1.setVenceu(false);
+			jogador2.setVenceu(false);
 		}else { 
 			verificarEscolhasDosJogadores();
 		}	
-	}	  	
+	}	
+	
+	public void setDescricaoJogadas(){
+		int  escolhaJogado1 = jogador1.getEscolhaSimboloJogado();
+		int  escolhaJogado2 = jogador2.getEscolhaSimboloJogado();
+		
+		jogador1.setDescricaoSimboloJogado(getDescricaoSimbolo(escolhaJogado1));
+		jogador2.setDescricaoSimboloJogado(getDescricaoSimbolo(escolhaJogado2));
+	
+	}
 		
 	public boolean jogadaEmpatada() {
 		return (jogador1.getEscolhaSimboloJogado() == jogador2.getEscolhaSimboloJogado());
@@ -71,8 +83,14 @@ public class Jogo {
 		
 		int  escolhaJogado1 = jogador1.getEscolhaSimboloJogado();
 		int  escolhaJogado2 = jogador2.getEscolhaSimboloJogado();
+		
+		jogador1.setDescricaoSimboloJogado(getDescricaoSimbolo(escolhaJogado1));
+		jogador2.setDescricaoSimboloJogado(getDescricaoSimbolo(escolhaJogado2));
 				
-		if ((escolhaJogado1 == PEDRA && escolhaJogado2 == TESOURA) || (escolhaJogado1 == TESOURA && escolhaJogado2 == PAPEL) || (escolhaJogado1 == PAPEL && escolhaJogado2 == PEDRA)) {
+		if ((escolhaJogado1 == PEDRA   && escolhaJogado2 == TESOURA) || 
+			(escolhaJogado1 == TESOURA && escolhaJogado2 == PAPEL)   || 
+			(escolhaJogado1 == PAPEL   && escolhaJogado2 == PEDRA)) 
+		{
 			jogador1.setVenceu(true);
 			jogador2.setVenceu(false);
 		}			
@@ -87,7 +105,7 @@ public class Jogo {
 	public static int sortearSimbolos(Boolean comPedra){
 		Random simboloSorteado = new Random();
 		if (comPedra) {
-			return simboloSorteado.nextInt(3) + 1;
+			return  simboloSorteado.nextInt(3) + 1;
 		}else {
 			return simboloSorteado.nextInt(2) + 1;
 		}
@@ -108,6 +126,28 @@ public class Jogo {
 		}			
 	}
 
+	public String getVencedorPartidas(){
+		if (jogadaEmpatada()){
+			return "Empate!";
+		}else {
+			return (jogador1.venceu()) ? jogador1.getNome() : jogador2.getNome();
+		}
+	}
 
+	public String getDescricaoSimbolo(int simboloJogado ) {
+		String  descricao  = "";
+		switch(simboloJogado){
+		    case PEDRA: 
+		    	descricao  = "PEDRA";
+		    	 break;
+		    case PAPEL: 
+		    	descricao  = "PAPEL"; 
+		        break;
+		    case TESOURA: 
+		    	descricao  = "TESOURA"; 
+		        break;   
+		}
+		return descricao;		
+	}
 }
 
